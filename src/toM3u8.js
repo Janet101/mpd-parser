@@ -329,6 +329,10 @@ export const formatVideoPlaylist = ({
     playlist.attributes['FRAME-RATE'] = attributes.frameRate;
   }
 
+  if (attributes.qualityranking) {
+    playlist.attributes['QUALITY-RANKING'] = attributes.qualityranking;
+  }
+
   if (attributes.contentProtection) {
     playlist.contentProtection = attributes.contentProtection;
   }

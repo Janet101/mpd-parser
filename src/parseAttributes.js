@@ -255,6 +255,20 @@ export const parsers = {
   },
 
   /**
+   * Specifies the quality ranking of the representation relative to others in the same
+   * adaptation set. Higher values represent higher quality content.
+   *
+   * @param {string} value
+   *        value of the attribute as a string
+   *
+   * @return {number}
+   *         The parsed qualityRanking
+   */
+  qualityranking(value) {
+    return parseInt(value, 10);
+  },
+
+  /**
    * Default parser for all other attributes. Acts as a no-op and just returns the value
    * as a string
    *
