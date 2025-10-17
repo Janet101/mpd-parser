@@ -28,7 +28,7 @@ export const parsedManifest = {
         'CODECS': 'avc1.4d401e',
         'BANDWIDTH': 500000,
         'PROGRAM-ID': 1,
-        'QUALITY-RANKING': 1
+        'SCORE': 1
       },
       uri: '',
       endList: true,
@@ -76,7 +76,7 @@ export const parsedManifest = {
         'CODECS': 'avc1.4d401f',
         'BANDWIDTH': 1000000,
         'PROGRAM-ID': 1,
-        'QUALITY-RANKING': 5
+        'SCORE': 5
       },
       uri: '',
       endList: true,
@@ -124,7 +124,7 @@ export const parsedManifest = {
         'CODECS': 'avc1.4d4028',
         'BANDWIDTH': 2000000,
         'PROGRAM-ID': 1,
-        'QUALITY-RANKING': 10
+        'SCORE': 10
       },
       uri: '',
       endList: true,
