@@ -256,7 +256,8 @@ export const parsers = {
 
   /**
    * Specifies the quality ranking of the representation relative to others in the same
-   * adaptation set. Higher values represent higher quality content.
+   * adaptation set. This is inversely related to quality - higher values represent
+   * lower quality content (e.g., 1 = highest quality, 10 = lowest quality).
    *
    * @param {string} value
    *        value of the attribute as a string
