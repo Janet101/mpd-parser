@@ -330,7 +330,7 @@ export const formatVideoPlaylist = ({
   }
 
   if (attributes.qualityranking) {
-    playlist.attributes.SCORE = attributes.qualityranking;
+    playlist.attributes.SCORE = 1 / attributes.qualityranking;
   }
 
   if (attributes.contentProtection) {
