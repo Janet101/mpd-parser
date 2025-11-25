@@ -265,6 +265,19 @@ export const parsers = {
    * @return {number}
    *         The parsed qualityRanking
    */
+  qualityRanking(value) {
+    return parseInt(value, 10);
+  },
+
+  /**
+   * Alias for qualityRanking to handle lowercase attribute names from HTML DOM.
+   *
+   * @param {string} value
+   *        value of the attribute as a string
+   *
+   * @return {number}
+   *         The parsed qualityRanking
+   */
   qualityranking(value) {
     return parseInt(value, 10);
   },
@@ -284,6 +297,16 @@ export const parsers = {
 };
 
 /**
+ * Maps lowercase attribute names to their camelCase equivalents for internal use.
+ * HTML DOM converts attributes to lowercase, but we want to maintain camelCase
+ * naming conventions in the parsed output. XML parsers like xmldom preserve
+ * the original casing.
+ */
+const attributeNameMap = {
+  qualityranking: 'qualityRanking'
+};
+
+/**
  * Gets all the attributes and values of the provided node, parses attributes with known
  * types, and returns an object with attribute names mapped to values.
  *
@@ -300,8 +323,9 @@ export const parseAttributes = (el) => {
   return from(el.attributes)
     .reduce((a, e) => {
       const parseFn = parsers[e.name] || parsers.DEFAULT;
+      const attributeName = attributeNameMap[e.name] || e.name;
 
-      a[e.name] = parseFn(e.value);
+      a[attributeName] = parseFn(e.value);
 
       return a;
     }, {});
