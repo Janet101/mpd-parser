@@ -330,9 +330,10 @@ export const formatVideoPlaylist = ({
   }
 
   // qualityRanking is inversely related to quality (higher value = lower quality)
-  // so SCORE is calculated as 1/qualityRanking (higher SCORE = higher quality)
-  if (attributes.qualityranking) {
-    playlist.attributes.SCORE = 1 / attributes.qualityranking;
+  // so SCORE is calculated as 1/(qualityRanking+1) (higher SCORE = higher quality)
+  // The +1 ensures we avoid division by zero when qualityRanking is 0
+  if (attributes.qualityranking !== undefined) {
+    playlist.attributes.SCORE = 1 / (attributes.qualityranking + 1);
   }
 
   if (attributes.contentProtection) {
